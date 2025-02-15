@@ -19,6 +19,9 @@ def emo_detector():
     sadness = result.get('sadness', 0)
     dominant_emotion = result.get('dominant_emotion', 'Unknown')
 
+    if dominant_emotion == None:
+        return jsonify({"message": "Invalid text! Please try again!. "})
+
     return (f"<p>For the given statement, the system response is 'anger': {anger}, 'disgust': {disgust}, 'fear': {fear}, 'joy': {joy}, and 'sadness': {sadness}. The dominant emotion is <b>{dominant_emotion}</b>.</p>")
 
 if __name__ == '__main__':
